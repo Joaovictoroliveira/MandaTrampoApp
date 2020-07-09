@@ -27,7 +27,7 @@ class ParceiroCard extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              'images/pizza.jpg',
+              'images/doceria.jpg',
               height: 150,
               width: 150,
               fit: BoxFit.fitHeight,

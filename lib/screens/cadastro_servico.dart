@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mandatrampo/screens/homepage.dart';
 import 'package:mandatrampo/widgets/text_field_manda_trampo.dart';
-import 'package:mandatrampo/screens/menu_cadastro_page.dart';
+import 'menu_cadastro_page.dart';
 
-class LoginPage extends StatefulWidget {
+class CadastroServico extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _CadastroServico createState() => _CadastroServico();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _CadastroServico extends State<CadastroServico> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   children: [
                     Text(
-                      'Manda Trampo ',
+                      'MandaTrampo ',
                       style: TextStyle(
                           color: Theme.of(context).accentColor,
                           fontWeight: FontWeight.w500),
@@ -35,65 +36,52 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 // Imagem com logo do mockup
-                Image.asset('images/logo.png'),
+                // Image.asset('images/logo.png'),
                 SizedBox(
-                  height: 16,
+                  height: 30,
                 ),
                 // Texto com múltiplas formatações utilizando Span, cada RichText possui um texto e um conjunto de TextSpans permitindo múltiplas formatações
                 RichText(
                   text: TextSpan(
-                    text: 'Queremos te',
+                    text: 'Cadastro de ',
                     style: TextStyle(fontSize: 20),
                     children: [
                       TextSpan(
-                        text: ' ajudar ',
+                        text: ' Serviço ',
                         style: TextStyle(color: Color(0xFF6c63fe)),
-                        children: [
-                          TextSpan(
-                            text: ' a passar por tudo isso!',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
                       ),
                     ],
                   ),
                 ),
+
                 // Componente customizado conforme mockup
-                TextFieldMandaTrampo(texto: 'Nome completo'),
+                TextFieldMandaTrampo(texto: 'Nome Estabelecimento'),
                 TextFieldMandaTrampo(
-                  texto: 'E-mail',
-                  tipoTeclado: TextInputType.emailAddress,
+                  texto: 'Endereço',
+                  tipoTeclado: TextInputType.text,
                 ),
                 TextFieldMandaTrampo(
-                  texto: 'Senha',
-                  isPassword: true,
+                  texto: 'Cidade',
+                  tipoTeclado: TextInputType.text,
                 ),
                 TextFieldMandaTrampo(
-                  texto: 'Confirme a senha',
-                  isPassword: true,
+                  texto: 'Telefone',
+                  tipoTeclado: TextInputType.phone,
                 ),
-                // Espaço vertical
                 SizedBox(
                   height: 32,
-                ),
-                Row(
-                  children: [
-                    Checkbox(
-                      onChanged: (bool value) {},
-                      value: false,
-                    ),
-                    Expanded(
-                      child: Text(
-                          'Eu concordo com os termos de serviço da mandatrampo.'),
-                    ),
-                  ],
                 ),
                 Row(
                   children: [
                     Expanded(
                       child: MaterialButton(
                         child: Text('VOLTAR'),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => MenuCadastro()));
+                        },
                         shape: Border.all(
                             width: 1, color: Theme.of(context).accentColor),
                       ),
@@ -107,30 +95,13 @@ class _LoginPageState extends State<LoginPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => MenuCadastro()));
+                                  builder: (context) => HomePage()));
                         },
-                        child: Text('PRÓXIMO'),
+                        child: Text('Cadastrar'),
                       ),
                     ),
                   ],
                 ),
-                Row(
-                  children: [
-                    Text('Já tem uma conta? '),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: FlatButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Entrar',
-                          style: TextStyle(color: Colors.blueAccent),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-
-                //Espacamento vertical
                 SizedBox(
                   height: 24,
                 ),
