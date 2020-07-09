@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
             title: Text('Serviços'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.cake),
             title: Text(
               'CV',
             ),
